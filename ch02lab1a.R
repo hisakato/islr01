@@ -87,3 +87,44 @@ A[-c(1,3),-c(1,3,4)]
 dim(A)
 
 ## 2.3.4 Loading Data
+Auto=read.table("Auto.data")
+fix(Auto)
+
+# p. 49
+Auto=read.table("Auto.data", header = T, na.strings = "?")
+fix(Auto)
+
+Auto=read.csv("Auto.csv", header = T, na.strings = "?")
+fix(Auto)
+dim(Auto)
+Auto[1:4,]
+Auto=na.omit(Auto)
+dim(Auto)
+names(Auto)
+
+## 2.3.5 Additional Graphical and Numerical Summaries
+## p. 50
+plot(cylinders, mpg)
+plot(Auto$cylinders, Auto$mpg)
+attach(Auto)
+plot(cylinders, mpg)
+cylinders=as.factor(cylinders)
+plot(cylinders, mpg)
+plot(cylinders, mpg, col="red")
+plot(cylinders, mpg, col="red", varwidth=T)
+plot(cylinders, mpg, col="red", varwidth=T, horizontal=T)
+plot(cylinders, mpg, col="red", varwidth=T, xlab="cylinders", ylab="mpg")
+hist(mpg)
+hist(mpg, col=2)
+hist(mpg, col=2, breaks=15)
+pairs(Auto)
+pairs(~ mpg + displacement + horsepower + weight + acceleration, Auto)
+
+## p. 51
+plot(horsepower, mpg)
+identify(horsepower, mpg, name)
+summary(Auto)
+summary(mpg)
+
+savehistory()
+loadhistory()
